@@ -5,6 +5,24 @@ body{
     background: #000000;
     overflow-x: hidden;
 }
+#canvas, #video{
+    width: 100%;
+    height: auto;
+}
 #canvas{
+    /* filter:sepia(100%) saturate(500%) brightness(80%) hue-rotate(80deg) contrast(150%) */
+}
+#photos{
     display: none;
+}
+.container{
+    width: 90%;
+    border: 5px solid #0F1C16;
+}
+.container .screen{
+    width: 32.5%;
+    border: 5px solid #0F1C16;
+    margin: 5px;
+    padding: 0;
+
 }

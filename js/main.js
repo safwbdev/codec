@@ -1,19 +1,22 @@
 let width = 500,
     height = 0,
-    filter = 'none',
+    // filter = 'none',
+    filter = 'filter:sepia(100%) saturate(500%) brightness(80%) hue-rotate(80deg) contrast(150%)',
+    
     streaming = false;
-
-const video  = document.getElementById('video');
-const canvas  = document.getElementById('canvas');
-const photos  = document.getElementById('photos');
-const photoButton  = document.getElementById('photo-button');
-const clearButton  = document.getElementById('clear-button');
-const photoFilter  = document.getElementById('photo-filter');
-
-navigator.mediaDevices.getUserMedia({video: true, audio: false})
-.then(function(stream) {
-    video.srcObject = stream;
-    video.play();
+    
+    const video  = document.getElementById('video');
+    const canvas  = document.getElementById('canvas');
+    const photos  = document.getElementById('photos');
+    const photoButton  = document.getElementById('photo-button');
+    const clearButton  = document.getElementById('clear-button');
+    const photoFilter  = document.getElementById('photo-filter');
+    
+    navigator.mediaDevices.getUserMedia({video: true, audio: false})
+    .then(function(stream) {
+        video.srcObject = stream;
+        video.style = filter;
+        video.play();
 })
 .catch(function(err){
     console.log(`Error: ${err}`);
@@ -27,7 +30,6 @@ video.addEventListener('canplay', function(e) {
         video.setAttribute('height', height);
         canvas.setAttribute('width', width);
         canvas.setAttribute('height', height);
-
         streaming = true;
     }
 }, false);
@@ -39,6 +41,7 @@ photoButton.addEventListener('click', function(e) {
 photoFilter.addEventListener('change', function(e) {
     filter = e.target.value;
     video.style.filter = filter;
+    canvas.style.filter = filter;
     e.preventDefault();
 });
 
