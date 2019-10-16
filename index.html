@@ -5,54 +5,109 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CODEC</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css" />
 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-    <div class="navbar">
-    </div>
-    <div class="container">
+    <div class="navbar"></div>
+    <div class="container codec-screen">
         <div class="row">
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 screen">
-            <div class="inner">
-                <canvas id="canvas"></canvas></div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 screen">
+                <div class="inner">
+                    <canvas id="canvas"></canvas>
+                </div>
             </div>
-        <div class="col-md-4 col-lg-4 col-md-4 col-sm-4 col-xs-4 mid">
-            <div class="inner">
-                <h1>PTT</h1>
+            <div class="col-md-4 col-lg-4 col-md-4 col-sm-4 col-xs-4 mid">
+                <div class="inner">
+                    <div class="top-box">
+                        <div class="side"></div>
+                        <div class="mid">
+                            <h1>PTT</h1>
+                        </div>
+                        <div class="side"></div>
+                    </div>
+                    <div class="center-box">
+                        <div class="side"><button><i class="fa fa-caret-left" aria-hidden="true"></i></button></div>
+                        <div class="mid">
+                            <div class="freq">
+                                <h1>PTT</h1>
 
+                            </div>
+                        </div>
+                        <div class="side"><button><i class="fa fa-caret-right" aria-hidden="true"></i></button></div>
+                    </div>
+                    <div class="bottom-box">
+                        <div class="side"></div>
+                        <div class="mid">
+                            <!-- <h1>MEMORY</h1> -->
+                            <button data-toggle="collapse" data-target="#options">MEMORY</button>
+
+                        </div>
+                        <div class="side"></div>
+                    </div>
+                </div>
             </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 screen">
+                <div class="inner">
+                    <video id="video">NO SIGNAL</video></div>
+                </div>
+                
             </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 screen">
-            <div class="inner">
-                <video id="video">NO SIGNAL</video></div>
-            </div>
-            
         </div>
-    </div>
-    <div class="top-container">
-        
+    <div class="container collapse" id="options">
         <button id="photo-button" class="btn btn-dark">
             Take photo
         </button>
-        <select id="photo-filter">
-            <option value="sepia(100%) saturate(500%) brightness(80%) hue-rotate(80deg) contrast(150%)">Boss</option>
-            <option value="none">Normal</option>
-            <option value="grayscale(100%)">Grayscale</option>
-            <option value="sepia(100%)">Sepia</option>
-            <option value="invert(100%)">Invert</option>
-            <option value="hue-rotate(90deg)">Hue</option>
-            <option value="blur(10px)">Blur</option>
-            <option value="contrast(200%)">Contrast</option>
-        </select>
-        <button id="clear-button">Clear</button>
-        <!-- <canvas id="canvas"></canvas> -->
+        
+        <div id="photo-filter" class="photo-filter">
+
+            <input type="radio" id="filter1" name="filters" value="sepia(100%) saturate(500%) brightness(80%) hue-rotate(80deg) contrast(150%)" checked> 
+            <label for="filter1">
+                <span class="no">140.05</span><span class="name">Colonel</span>
+            </label>
+            <input type="radio" id="filter2" name="filters" value="none"> 
+            <label for="filter2">
+                <span class="no">142.60</span><span class="name">Normal</span>
+            </label>
+            <input type="radio" id="filter3" name="filters" value="grayscale(100%)"> 
+            <label for="filter3">
+                <span class="no">146.55</span><span class="name">Grayscale</span>
+            </label>
+            <input type="radio" id="filter4" name="filters" value="sepia(100%)"> 
+            <label for="filter4">
+                <span class="no">141.00</span><span class="name">Sepia</span>
+            </label>
+            <input type="radio" id="filter5" name="filters" value="invert(100%)"> 
+            <label for="filter5">
+                <span class="no">143.89</span><span class="name">Invert</span>
+            </label>
+            <input type="radio" id="filter6" name="filters" value="hue-rotate(90deg)"> 
+            <label for="filter6">
+                <span class="no">149.20</span><span class="name">Hue</span>
+            </label>
+            <input type="radio" id="filter7" name="filters" value="blur(10px)"> 
+            <label for="filter7">
+                <span class="no">147.69</span><span class="name">Blur</span>
+            </label>
+            <input type="radio" id="filter7" name="filters" value="contrast(200%)"> 
+            <label for="filter7">
+                <span class="no">148.05</span><span class="name">Contrast</span>
+            </label>
+        </div>
+  <br />
+        <!-- <button id="clear-button">Clear</button> -->
     </div>
+    
     <div class="bottom-container">
         <div id="photos"></div>
     </div>
     <script src="js/main.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </body>
 </html>
